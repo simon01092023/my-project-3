@@ -24,7 +24,7 @@ export function UserProvider({children, loggedUser}){
 // you want and use it just like a hook and it will
 // give you the logged in User!!!!! from the App component
 // ex: const loggedUser = useLoggedUser()
-// check out the PostCard component for an example!
+// check out the PollCard component for an example!
 
 export function useLoggedUser(){
 	return useContext(UserContext)

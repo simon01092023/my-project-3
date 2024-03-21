@@ -4,9 +4,9 @@ const votesCtrl = require('../../controllers/votes')
 
 // in server app.use('/api', votesRouter)
 // so the full routes are 
-// /api/posts/:id/votes
+// /api/polls/:id/votes
 router.post('/polls/:id/votes', votesCtrl.create)
-// /api/likes/:id
-router.delete('/votes/:id', votesCtrl.deleteLike)
+// /api/votes/:id
+router.delete('/votes/:id', votesCtrl.deleteVote)
 
 module.exports = router;

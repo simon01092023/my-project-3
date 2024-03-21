@@ -1,11 +1,12 @@
-import { useState } from 'react'
-import { Button, Form, Segment } from 'semantic-ui-react'
+import { useState } from 'react';
+import { Button, Form, Segment } from 'semantic-ui-react';
 
 
 export default function AddPollForm({ handleAddPoll }) {
 
   const [state, setState] = useState({
     caption: ''
+
   })
 
   const [photos, setPhotos] = useState([])

@@ -53,7 +53,7 @@ function create(req, res) {
         // respond to the client!
         // 201 means resource created!
         // then respond to the client (completing a request, by making response to the client(browser))
-        res.status(201).json({ createPoll });
+        res.status(201).json({ poll });
 
       } catch (err) {
         //console.log(err);
@@ -69,7 +69,7 @@ async function index(req, res) {
     // so you'll have access to the users information
     // when you fetch the polls
     const polls = await PollModel.find({}).populate("user").exec();
-    res.status(200).json({ createPoll });
+    res.status(200).json({ polls });
   } catch (err) {
     res.json({ error: err })
   }
