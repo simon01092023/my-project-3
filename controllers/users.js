@@ -1,7 +1,7 @@
 const User = require('../models/user');
 const jwt = require('jsonwebtoken');
 const SECRET = process.env.SECRET;
-const PostModel = require('../models/post')
+const PollModel = require('../models/poll')
 
 const { v4: uuidv4 } = require('uuid');
 // uuid, helps generate our unique ids
@@ -26,10 +26,10 @@ async function profile(req, res){
     // if we don't find a user send back user not found
     if (!user) return  res.status(404).json({error: 'User not found'})
 
-    // Find all of the posts for user and respond to the client
-    const posts = await PostModel.find({user: user._id}).populate('user').exec()
+    // Find all of the polls for user and respond to the client
+    const polls = await PollModel.find({user: user._id}).populate('user').exec()
 
-    res.status(200).json({data: posts, user: user})
+    res.status(200).json({data: polls, user: user})
   } catch(err){
     console.log(err)
     res.status(400).json({err})
@@ -40,10 +40,10 @@ async function signup(req, res) {
   console.log(req.body, req.file)
 
   // check to make sure a file was uploaded
-  if(!req.file) return res.status(400).json({error: 'Please Submit a Photo'})
+  if(!req.file) return res.status(400).json({error: 'Please Submit a Photos'})
 
   // create the path on our s3 bucket of where we'll store our image.
-  const filePath = `pupstagram/${uuidv4()}-${req.file.originalname}`
+  const filePath = `pollnow/${uuidv4()}-${req.file.originalname}`
   const params = {Bucket: BUCKET_NAME, Key: filePath, Body: req.file.buffer}; // req.file.buffer is the actually image
   // s3.upload(parmas) is the express request to aws
   s3.upload(params, async function(err, data){ // function(err, data) this is the response from aws
