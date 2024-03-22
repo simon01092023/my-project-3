@@ -1,8 +1,7 @@
 const Poll = require('../models/poll');
 
 module.exports = {
-    create,
-    deleteVote
+    create
 }
 
 async function create(req, res){
@@ -19,15 +18,3 @@ async function create(req, res){
     
 }
 
-async function deleteVote(req, res){
-    try {
-        
-        const poll = await Poll.findOne({'votes._id': req.params.id, 'votes.username': req.user.username});
-        poll.votes.remove(req.params.id) // mutating a document
-        // req.params.id is the like id 
-        await poll.save() // after you mutate a document you must save
-        res.json({data: 'vote removed'})
-    } catch(err){
-        res.status(400).json({err})
-    }
-}

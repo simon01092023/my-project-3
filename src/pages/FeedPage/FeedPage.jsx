@@ -71,10 +71,10 @@ export default function FeedPage({ loggedUser, handleLogout }) {
     }
   }
 
-  async function addVote(pollId) { // pollId comes from the card component
+  async function addVote(id) { // pollId comes from the card component
     // where we call this function
     try {
-      const response = await fetch(`/api/polls/${pollId}/votes`, {
+      const response = await fetch(`/api/polls/${id}/votes`, {
         method: 'POST',
         headers: {
           // convention for sending jwts in a fetch request
@@ -94,9 +94,9 @@ export default function FeedPage({ loggedUser, handleLogout }) {
     }
   }
 
-  async function removeVote(voteId) {
+  async function removePoll(id) {
     try {
-      const response = await fetch(`/api/votes/${voteId}`, {
+      const response = await fetch(`/api/polls/${id}`, {
         method: 'DELETE',
         headers: {
           // convention for sending jwts in a fetch request
@@ -107,9 +107,9 @@ export default function FeedPage({ loggedUser, handleLogout }) {
       })
 
       const data = await response.json()
-      console.log(data, ' response from delete like')
+      console.log(data, ' response from delete poll')
       getPolls(); // call getPolls to sync you data and update state
-      // so the like is removed from the array 
+      // so the poll is removed from the array 
     } catch (err) {
       console.log(err)
     }
@@ -136,7 +136,7 @@ export default function FeedPage({ loggedUser, handleLogout }) {
       </Grid.Row>
       <Grid.Row>
         <Grid.Column style={{ maxWidth: 450 }}>
-          {loading ? <h1>Loading.....</h1> : <PollFeed polls={polls} itemsPerRow={1} isProfile={false} addVote={addVote} removeVote={removeVote} loggedUser={loggedUser} />}
+          {loading ? <h1>Loading.....</h1> : <PollFeed polls={polls} itemsPerRow={1} isProfile={false} addVote={addVote} removePoll={removePoll} loggedUser={loggedUser} />}
         </Grid.Column>
       </Grid.Row>
     </Grid>

@@ -45,14 +45,14 @@ export default function AddPollForm({ handleAddPoll }) {
         <Form.Input
           className="form-control"
           type="file"
-          name="photos"
+          name="photo1"
           placeholder="upload image"
           onChange={handleFileInput}
         />
         <Form.Input
           className="form-control"
           type="file"
-          name="photos"
+          name="photo2"
           placeholder="upload image"
           onChange={handleFileInput}
         />

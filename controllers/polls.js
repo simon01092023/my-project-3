@@ -4,7 +4,8 @@ const PollModel = require("../models/poll");
 
 module.exports = {
   create,
-  index
+  index,
+  deletePoll
 };
 
 const { v4: uuidv4 } = require('uuid');
@@ -72,5 +73,15 @@ async function index(req, res) {
     res.status(200).json({ polls });
   } catch (err) {
     res.json({ error: err })
+  }
+}
+
+async function deletePoll(req, res) {
+  try {
+    const poll = await PollModel.findOneAndDelete({ id: req.params.id,  });
+    res.json({ data: 'poll removed' })
+  } catch (err) {
+    console.log(err)
+    res.send(err)
   }
 }

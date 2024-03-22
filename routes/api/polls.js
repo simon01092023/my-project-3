@@ -15,6 +15,10 @@ router.post('/', cpUpload, pollsCtrl.create);
 // /api/polls the index functions job is to return all of the polls
 router.get('/', pollsCtrl.index)
 
+// /api/polls/:id
+router.delete('/:id', pollsCtrl.deletePoll);
+
+
 
 
 /*---------- Protected Routes ----------*/

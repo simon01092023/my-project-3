@@ -57,10 +57,10 @@ export default function ProfilePage({ loggedUser, handleLogout }) {
         }
     }
 
-    async function addVote(pollId) { // pollId comes from the card component
+    async function addVote(id) { // pollId comes from the card component
         // where we call this function
         try {
-            const response = await fetch(`/api/polls/${pollId}/votes`, {
+            const response = await fetch(`/api/polls/${id}/votes`, {
                 method: 'POST',
                 headers: {
                     // convention for sending jwts in a fetch request
@@ -74,15 +74,15 @@ export default function ProfilePage({ loggedUser, handleLogout }) {
             console.log(data, ' response from addVote')
             getProfileInfo(); // Refetch the polls, which updates the state, 
             // the poll will now have the user in inside of the 
-            // poll.votes array
+            // polls.votes array
         } catch (err) {
             console.log(err)
         }
     }
 
-    async function removeVote(voteId) {
+    async function removePoll(id) {
         try {
-            const response = await fetch(`/api/votes/${voteId}`, {
+            const response = await fetch(`/api/polls/${id}`, {
                 method: 'DELETE',
                 headers: {
                     // convention for sending jwts in a fetch request
@@ -93,9 +93,9 @@ export default function ProfilePage({ loggedUser, handleLogout }) {
             })
 
             const data = await response.json()
-            console.log(data, ' response from delete like')
+            console.log(data, ' response from delete poll')
             getProfileInfo(); // call getPolls to sync you data and update state
-            // so the like is removed from the array 
+            // so the vote is removed from the array 
         } catch (err) {
             console.log(err)
         }
@@ -133,7 +133,7 @@ export default function ProfilePage({ loggedUser, handleLogout }) {
             </Grid.Row>
             <Grid.Row centered>
                 <Grid.Column style={{ maxWidth: 750 }}>
-                    <PollFeed itemsPerRow={3} isProfile={true} polls={polls} addVote={addVote} removeVote={removeVote} loggedUser={loggedUser} />
+                    <PollFeed itemsPerRow={3} isProfile={true} polls={polls} addVote={addVote} removePoll={removePoll} loggedUser={loggedUser} />
 
                 </Grid.Column>
             </Grid.Row>

@@ -9,7 +9,7 @@ require("./config/database");
 // Require controllers here
 
 const app = express();
-
+const votesRouter = require("./routes/api/votes")
 const userRouter = require("./routes/api/users")
 const pollRouter = require('./routes/api/polls')
 // add in when the app is ready to be deployed
@@ -28,7 +28,7 @@ app.use(require("./config/auth"));
 // api routes must be before the "catch all" route
 app.use("/api/users", userRouter);
 app.use('/api/polls', pollRouter);
-
+app.use("/api", votesRouter);
 // "catch all" route
 app.get('/*', function(req, res) {
   res.sendFile(path.join(__dirname, 'public', 'index.html'));

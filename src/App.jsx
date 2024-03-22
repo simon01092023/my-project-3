@@ -45,7 +45,7 @@ function App() {
   return (
     <UserProvider loggedUser={user}>
       <Routes>
-      <Route path="/" element={<FeedPage />} />
+      <Route path="/" element={<FeedPage loggedUser={user} handleLogout={logout} />} />
       <Route path="/login" element={<LoginPage handleSignUpOrLogin={handleSignUpOrLogin} />} />
       <Route path='/signup' element={<SignUpPage handleSignUpOrLogin={handleSignUpOrLogin} />} />
       <Route path="/:username" element={<ProfilePage loggedUser={user} handleLogout={logout}/>} />
