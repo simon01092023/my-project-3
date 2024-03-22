@@ -39,7 +39,7 @@ function create(req, res) {
         // then save our poll to mongodb (request and response to mongodb)
         // Using our model to create a document in the polls collection in mongodb
         const poll = await PollModel.create({
-          caption: req.body.caption,
+          ...req.body,
           user: req.user,
           photoUrl1: data.Location,
           photoUrl2: dataFromAWS.Location

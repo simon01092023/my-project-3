@@ -4,6 +4,7 @@ const votesSchema = mongoose.Schema({
   username: String,
   // One User has many votes, referencing because we have user model, so we can get the users information when we need it
   //
+  choice: String,
   userId: { type: mongoose.Schema.Types.ObjectId },
 });
 
@@ -14,7 +15,8 @@ const pollSchema = new mongoose.Schema({
   user: { type: mongoose.Schema.Types.ObjectId, ref: "User" },
   photoUrl1: String,
   photoUrl2: String,
-  caption: String,
+  choice1: String,
+  choice2: String,
   // One Poll has many likes, we are using embedding, because the likes will always be tied to the poll, so no reason
   // to make a likes model
   votes: [votesSchema],
