@@ -35,7 +35,7 @@ export default function FeedPage({ loggedUser, handleLogout }) {
       const data = await response.json();
       //       res.status(201).json({ createPoll }); this value is from express/polls/create controller
       console.log(data, ' response from post request! This from express')
-      setPolls([data.polls, ...polls])
+      setPolls([data.poll, ...polls])
     } catch (err) {
       console.log(err.message)
       console.log('CHECK YOUR SERVER TERMINAL!!!!')

@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { Button, Form, Segment } from 'semantic-ui-react';
-
+import { Link, useNavigate } from "react-router-dom";
 
 export default function AddPollForm({ handleAddPoll }) {
 
@@ -10,6 +10,8 @@ export default function AddPollForm({ handleAddPoll }) {
   })
 
   const [photos, setPhotos] = useState([])
+
+  const navigate = useNavigate();
 
   function handleFileInput(e) {
     setPhotos([...photos, e.target.files[0]])
@@ -29,6 +31,7 @@ export default function AddPollForm({ handleAddPoll }) {
     formData.append('photo1', photos[0])
     formData.append('photo2', photos[1])
     handleAddPoll(formData)
+  
   }
 
   return (
