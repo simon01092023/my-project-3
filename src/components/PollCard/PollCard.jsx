@@ -36,7 +36,7 @@ export default function PollCard({ poll, isProfile, addVote, removePoll, loggedU
           <Grid.Column>
             <Image src={poll.photoUrl1} wrapped ui={false} />
             <Card.Content extra textAlign="center">
-              <Icon name="heart" size="large" color={hasVotedForFirst ? 'red' : 'black'} onClick={() => handleVote(poll._id, poll.choice1)} />
+              <Icon name="heart" size="large" color={hasVotedForFirst ? 'red' : 'black'} onClick={() => handleVote(poll._id, poll.choice1)} disabled={hasVoted} />
               {poll.votes.filter(vote => vote.choice === poll.choice1).length} Votes
             </Card.Content>
           </Grid.Column>
@@ -44,7 +44,7 @@ export default function PollCard({ poll, isProfile, addVote, removePoll, loggedU
           <Grid.Column>
             <Image src={poll.photoUrl2} wrapped ui={false} />
             <Card.Content extra textAlign="center">
-              <Icon name="heart" size="large" color={hasVotedForSecond ? 'red' : 'black'} onClick={() => handleVote(poll._id, poll.choice2)} />
+              <Icon name="heart" size="large" color={hasVotedForSecond ? 'red' : 'black'} onClick={() => handleVote(poll._id, poll.choice2)} disabled={hasVoted} />
               {poll.votes.filter(vote => vote.choice === poll.choice2).length} Votes
             </Card.Content>
           </Grid.Column>
