@@ -3,19 +3,15 @@ import { Link } from "react-router-dom";
 import "./PollCard.css";
 
 
-export default function PollCard({ poll, isProfile, addVote, removeVote, loggedUser }) {
+export default function PollCard({ poll, isProfile, addVote, removePoll, loggedUser }) {
   const hasVotedForFirst = poll.votes.some(vote => vote.username === loggedUser.username && vote.choice === poll.choice1);
   const hasVotedForSecond = poll.votes.some(vote => vote.username === loggedUser.username && vote.choice === poll.choice2);
 
   const handleVote = (pollId, choice) => {
-    if (hasVotedForFirst || hasVotedForSecond) {
-      removeVote(pollId);
-    } else {
       addVote(pollId, choice);
     }
-  };
 
-
+console.log(poll.votes.length)
   return (
     <Card>
       {!isProfile && (

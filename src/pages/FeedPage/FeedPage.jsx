@@ -71,12 +71,16 @@ export default function FeedPage({ loggedUser, handleLogout }) {
     }
   }
 
-  async function addVote(id) { // pollId comes from the card component
+  async function addVote(id, choice) { // pollId comes from the card component
     // where we call this function
     try {
       const response = await fetch(`/api/polls/${id}/votes`, {
         method: 'POST',
+        body: JSON.stringify({
+          choice
+        }),
         headers: {
+          'Content-Type': 'application/json',
           // convention for sending jwts in a fetch request
           Authorization: "Bearer " + tokenService.getToken(),
           // We send the token, so the server knows who is making the
