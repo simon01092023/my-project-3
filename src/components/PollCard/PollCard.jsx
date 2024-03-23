@@ -2,16 +2,19 @@ import { Button, Card, Icon, Image, Grid } from "semantic-ui-react";
 import { Link } from "react-router-dom";
 import "./PollCard.css";
 
-
 export default function PollCard({ poll, isProfile, addVote, removePoll, loggedUser }) {
-  const hasVotedForFirst = poll.votes.some(vote => vote.username === loggedUser.username && vote.choice === poll.choice1);
-  const hasVotedForSecond = poll.votes.some(vote => vote.username === loggedUser.username && vote.choice === poll.choice2);
+  const hasVoted = poll.votes.some(vote => vote.username === loggedUser.username);
+  const hasVotedForFirst = hasVoted && poll.votes.some(vote => vote.choice === poll.choice1);
+  const hasVotedForSecond = hasVoted && poll.votes.some(vote => vote.choice === poll.choice2);
 
   const handleVote = (pollId, choice) => {
+    if (!hasVoted) {
       addVote(pollId, choice);
     }
+  };
 
-console.log(poll.votes.length)
+
+  console.log(poll.votes.length)
   return (
     <Card>
       {!isProfile && (
@@ -27,7 +30,7 @@ console.log(poll.votes.length)
           </Link>
         </Card.Content>
       )}
-      
+
       <Grid divided='vertically'>
         <Grid.Row columns={2}>
           <Grid.Column>
