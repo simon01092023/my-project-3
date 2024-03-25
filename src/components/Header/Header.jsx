@@ -15,7 +15,7 @@ export default function PageHeader({ loggedUser, handleLogout }) {
                 <Link to="/">
                     <Icon name="home" style={iconStyle}></Icon>
                 </Link>
-                <Link to="" onClick={handleLogout}>
+                <Link to="" onClick={handleLogout} style={iconStyle}>
                     Logout
                 </Link>
             </Header>
