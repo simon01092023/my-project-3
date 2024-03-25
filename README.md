@@ -1,8 +1,9 @@
 #  Polling App ☑️
 
 - This is a simple web application that allows users to Create and Read polls. 
-- Create, Read, or Delete your own Polls.
-- You can add up to two choices and the vote is by clicking on the heart icon.
+- Create, Read, or Delete your own polls.
+- You can add up to two choices.
+- Votes are made by clicking on the heart icon of your choice.
 - Users can also login using their account using JWT.
 
 ## Technologies 
