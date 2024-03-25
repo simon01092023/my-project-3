@@ -2,12 +2,18 @@ import { Header, Segment, Image, Icon } from "semantic-ui-react";
 import { Link } from "react-router-dom";
 
 
+
+
 export default function PageHeader({ loggedUser, handleLogout }) {
+    const iconStyle = {
+        color: '#000000', // Ensures icons are black
+        filter: 'grayscale(100%)', // Converts icons to grayscale
+    };
     return (
         <Segment clearing>
             <Header as="h2" floated="right">
                 <Link to="/">
-                    <Icon name="home"></Icon>
+                    <Icon name="home" style={iconStyle}></Icon>
                 </Link>
                 <Link to="" onClick={handleLogout}>
                     Logout

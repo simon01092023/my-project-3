@@ -1,6 +1,0 @@
-.ui.icon {
-    color: #000000 !important;
-    /* Ensures icons are black */
-    filter: grayscale(100%) !important;
-    /* Converts icons to grayscale */
-}
