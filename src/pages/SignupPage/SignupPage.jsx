@@ -1,5 +1,6 @@
 import { useState } from "react";
 import ErrorMessage from "../../components/ErrorMessage/ErrorMessage";
+import "./SignupPage.css"
 
 import {
   Button,
@@ -136,7 +137,7 @@ export default function SignUpPage({ handleSignUpOrLogin }) {
               label="bio"
               name="bio"
               value={state.bio}
-              placeholder="Tell us more about your dogs..."
+              placeholder="Tell us more about you..."
               onChange={handleChange}
             />
             <Form.Field>

@@ -36,7 +36,7 @@ export default function PollCard({ poll, isProfile, addVote, removePoll, loggedU
           <Grid.Column>
             <Image src={poll.photoUrl1} wrapped ui={false} className="poll-image" />
             <Card.Content extra textAlign="center" className="vote-section">
-              <Icon name="heart" size="large" className={`vote-icon ${hasVotedForFirst ? 'red' : ''}`} onClick={() => handleVote(poll._id, poll.choice1)} disabled={hasVoted} />
+              <Icon name="heart" size="large" className={`vote-icon ${hasVotedForFirst ? 'red' : 'black'}`} onClick={() => handleVote(poll._id, poll.choice1)} disabled={hasVoted} />
               {poll.votes.filter(vote => vote.choice === poll.choice1).length} Votes
             </Card.Content>
           </Grid.Column>
@@ -44,7 +44,7 @@ export default function PollCard({ poll, isProfile, addVote, removePoll, loggedU
           <Grid.Column>
             <Image src={poll.photoUrl2} wrapped ui={false} className="poll-image" />
             <Card.Content extra textAlign="center" className="vote-section">
-              <Icon name="heart" size="large" className={`vote-icon ${hasVotedForFirst ? 'red' : ''}`} onClick={() => handleVote(poll._id, poll.choice2)} disabled={hasVoted} />
+              <Icon name="heart" size="large" className={`vote-icon ${hasVotedForFirst ? 'red' : 'black'}`} onClick={() => handleVote(poll._id, poll.choice2)} disabled={hasVoted} />
               {poll.votes.filter(vote => vote.choice === poll.choice2).length} Votes
             </Card.Content>
           </Grid.Column>

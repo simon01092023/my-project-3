@@ -16,18 +16,10 @@
   height: 200px;
   max-height: 200px;
   object-fit: cover;
-}
-
-.poll-card .poll-image {
   border: 1px solid #ddd;
 }
 
-.ui.form .grouped.fields>.field>.ui.radio.checkbox label {
-  font-size: 1.2em;
-  color: #333;
-}
-
-.ui.button {
+.poll-card.ui.button {
   background-color: red;
   color: black;
   padding: 15px 30px;
@@ -39,7 +31,7 @@
 
 }
 
-.poll-card .vote-icon {
+.vote-icon {
   color: black;
   cursor: pointer;
 }
@@ -48,7 +40,7 @@
   color: red;
 }
 
-.poll-card .extra.content {
+.extra.content {
   background-color: #f4f4f4;
   color: black;
   padding: 10px;
