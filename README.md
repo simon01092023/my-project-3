@@ -35,4 +35,4 @@ To run this project, you need to have Node.js and MongoDB installed on your mach
 #### 📁 [Trello Link]<https://trello.com/b/mmrkhyMq/polling>
 
 ## Next Steps: Planned Future Enhancements
-- Add Graphs or Charts (bar or pie)
+- Add Graphs or Charts 📊 📈 
